@@ -2,7 +2,7 @@ package sortalgorithms.quicksort;
 
 import sortalgorithms.SortAlgorithm;
 
-public class Quicksort extends SortAlgorithm{
+class Quicksort extends SortAlgorithm{
 
 	private int[] numbers;
 	private int number;

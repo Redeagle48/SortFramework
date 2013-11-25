@@ -9,14 +9,25 @@ public class Mergesort extends SortAlgorithm{
 	
 	private int number;
 	
-	public int[] sort(int[] values) {
+	public int[] run(int[] values){
+		this.numbers = values;
+		number = numbers.length;
+		this.helper = new int[number];
+		mergesort(0, number - 1);
+		
+		System.out.println("Estou no merge");
+		
+		return numbers;
+	}
+	
+	/*public int[] sort(int[] values) {
 		this.numbers = values;
 		number = numbers.length;
 		this.helper = new int[number];
 		mergesort(0, number - 1);
 		
 		return numbers;
-	}
+	}*/
 	
 	private void mergesort(int low, int high) {
 		// check if low is smaller then high, if not then the array is sorted

@@ -1,15 +1,16 @@
 import sortalgorithms.mergesort.Mergesort;
-import sortalgorithms.quicksort.Quicksort;
+import sortprocess.SortProcess;
 
 public class Main {
 	public static void main (String[] args) {
 		
 		int[] test = new int[]{2,1,3,7,2,4};
 		
-		Quicksort quicksort = new Quicksort();
-		Mergesort mergesort = new Mergesort();
+		SortProcess sortprocess = new SortProcess();
 		
-		int[] resultado = mergesort.sort(test);//quicksort.sort(test);
+		sortprocess.init(new Mergesort());
+		
+		int[] resultado = sortprocess.run(test);//quicksort.sort(test);
 		
 		for(int i = 0; i < resultado.length; i++) {
 			System.out.println(resultado[i]);
