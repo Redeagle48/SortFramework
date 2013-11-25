@@ -1,5 +1,5 @@
-import quicksort.*;
-import mergesort.*;
+import sortalgorithms.mergesort.Mergesort;
+import sortalgorithms.quicksort.Quicksort;
 
 public class Main {
 	public static void main (String[] args) {

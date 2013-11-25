@@ -1,6 +1,8 @@
-package mergesort;
+package sortalgorithms.mergesort;
 
-public class Mergesort {
+import sortalgorithms.SortAlgorithm;
+
+public class Mergesort extends SortAlgorithm{
 
 	private int[] numbers;
 	private int[] helper;

@@ -1,6 +1,8 @@
-package quicksort;
+package sortalgorithms.quicksort;
 
-public class Quicksort {
+import sortalgorithms.SortAlgorithm;
+
+public class Quicksort extends SortAlgorithm{
 
 	private int[] numbers;
 	private int number;
