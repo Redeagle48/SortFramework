@@ -15,7 +15,7 @@ public class Mergesort extends SortAlgorithm{
 		this.helper = new int[number];
 		mergesort(0, number - 1);
 		
-		System.out.println("Estou no merge");
+		//System.out.println("Estou no merge");
 		
 		return numbers;
 	}

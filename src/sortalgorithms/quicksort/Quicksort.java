@@ -2,12 +2,12 @@ package sortalgorithms.quicksort;
 
 import sortalgorithms.SortAlgorithm;
 
-class Quicksort extends SortAlgorithm{
+public class Quicksort extends SortAlgorithm{
 
 	private int[] numbers;
 	private int number;
-	
-	public int[] sort(int[] values) {
+
+	public int[] run(int[] values){
 		//check for empty or null array
 		if(values == null || values.length == 0) {
 			return values;
@@ -15,16 +15,28 @@ class Quicksort extends SortAlgorithm{
 		this.numbers = values;
 		number = values.length;
 		quicksort(0, number - 1);
-		
+
 		return numbers;
 	}
-	
+
+	/*public int[] sort(int[] values) {
+		//check for empty or null array
+		if(values == null || values.length == 0) {
+			return values;
+		}
+		this.numbers = values;
+		number = values.length;
+		quicksort(0, number - 1);
+
+		return numbers;
+	}*/
+
 	private void quicksort(int low, int high) {
 		int i = low, j = high;
-		
+
 		//Get the pivot element from the middle of the list
 		int pivot = numbers[low + (high-low)/2];
-		
+
 		//Divide into two lists
 		while (i <= j) {
 			//If the current value from the left list is smaller then the pivot
@@ -33,16 +45,16 @@ class Quicksort extends SortAlgorithm{
 				i++;
 			}
 			// If the current value from the right list is larger then the pivot
-		    // element then get the next element from the right list
+			// element then get the next element from the right list
 			while(numbers[j] > pivot) {
 				j--;
 			}
-			
+
 			// If we have found a values in the left list which is larger then
-		      // the pivot element and if we have found a value in the right list
-		      // which is smaller then the pivot element then we exchange the
-		      // values.
-		      // As we are done we can increase i and j
+			// the pivot element and if we have found a value in the right list
+			// which is smaller then the pivot element then we exchange the
+			// values.
+			// As we are done we can increase i and j
 			if (i <= j) {
 				exchange(i,j);
 				i++;
@@ -57,7 +69,7 @@ class Quicksort extends SortAlgorithm{
 			quicksort(i, high);
 		}
 	}
-	
+
 	private void exchange(int i, int j){
 		int temp = numbers[i];
 		numbers[i] = numbers[j];
