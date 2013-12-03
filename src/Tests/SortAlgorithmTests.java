@@ -1,5 +1,6 @@
 package Tests;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,7 @@ import org.junit.Test;
 import sortalgorithms.insertionsort.InsertionSort;
 import sortalgorithms.mergesort.Mergesort;
 import sortalgorithms.quicksort.Quicksort;
+import sortalgorithms.heapsort.*;
 import sortprocess.SortProcess;
 
 
@@ -159,6 +161,54 @@ public class SortAlgorithmTests {
 		int[] resultadocerto = new int[]{100,192,492,695,700,4000,4006};
 
 		sortprocess.init(new InsertionSort());
+
+		int[] resultado = sortprocess.run(test);//quicksort.sort(test);
+
+		ArrayList<Integer> resultadoArray = new ArrayList<Integer>();
+		ArrayList<Integer> resultadocertoArray = new ArrayList<Integer>();
+
+		for(int i = 0; i < resultado.length; i++) {
+			resultadoArray.add(resultado[i]);
+		}
+
+		for(int i = 0; i < resultadocerto.length; i++) {
+			resultadocertoArray.add(resultadocerto[i]);
+		}
+
+		assertEquals(resultadoArray,resultadocertoArray);
+	}
+	
+	@Test
+	public void testHeapSort_easy() {
+
+		int[] test = new int[]{2,1,3,7,2,4};
+		int[] resultadocerto = new int[]{1,2,2,3,4,7};
+
+		sortprocess.init(new HeapSort());
+
+		int[] resultado = sortprocess.run(test);//quicksort.sort(test);
+
+		ArrayList<Integer> resultadoArray = new ArrayList<Integer>();
+		ArrayList<Integer> resultadocertoArray = new ArrayList<Integer>();
+
+		for(int i = 0; i < resultado.length; i++) {
+			resultadoArray.add(resultado[i]);
+		}
+
+		for(int i = 0; i < resultadocerto.length; i++) {
+			resultadocertoArray.add(resultadocerto[i]);
+		}
+
+		assertEquals(resultadoArray,resultadocertoArray);
+	}
+	
+	@Test
+	public void testHeapSort_normal() {
+
+		int[] test = new int[]{4006,695,4000,700,192,100,492};
+		int[] resultadocerto = new int[]{100,192,492,695,700,4000,4006};
+
+		sortprocess.init(new HeapSort());
 
 		int[] resultado = sortprocess.run(test);//quicksort.sort(test);
 
