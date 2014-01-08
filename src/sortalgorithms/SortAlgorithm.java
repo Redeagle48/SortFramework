@@ -3,7 +3,10 @@ package sortalgorithms;
 public class SortAlgorithm {
 
 	public int[] run(int[] values){
-		//System.out.println("Estou no geral");
+		return null;
+	}
+	
+	public Object[] run(Object[] values){
 		return null;
 	}
 

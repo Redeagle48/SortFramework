@@ -8,12 +8,15 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import sortalgorithms.bubblesort.BubbleSort;
+import sortalgorithms.heapsort.HeapSort;
 import sortalgorithms.insertionsort.InsertionSort;
+import sortalgorithms.insertionsortgeneric.InsertionSortGeneric;
 import sortalgorithms.mergesort.Mergesort;
 import sortalgorithms.quicksort.Quicksort;
-import sortalgorithms.bubblesort.BubbleSort;
-import sortalgorithms.heapsort.*;
 import sortprocess.SortProcess;
+
+import comparablepackage.Classe;
 
 
 public class SortAlgorithmTests {
@@ -266,6 +269,39 @@ public class SortAlgorithmTests {
 
 		for(int i = 0; i < resultado.length; i++) {
 			resultadoArray.add(resultado[i]);
+		}
+
+		for(int i = 0; i < resultadocerto.length; i++) {
+			resultadocertoArray.add(resultadocerto[i]);
+		}
+
+		assertEquals(resultadoArray,resultadocertoArray);
+	}
+	
+	@Test
+	public void testInsertionSortGeneric_normal() {
+
+		Classe[] test = new Classe[]{new Classe("camomila", 5), new Classe("girassol", 6), new Classe("milho", 2), 
+				new Classe("hamburguer", 9), new Classe("ketchup", 1)};
+		
+		Classe[] resultadocerto = new Classe[]{new Classe("ketchup", 1), new Classe("milho", 2), 
+				new Classe("camomila", 5), new Classe("girassol", 6), 
+				new Classe("hamburguer", 9)};
+
+		sortprocess.init(new InsertionSortGeneric());
+
+		Object[] resultado = sortprocess.run(test);//quicksort.sort(test);
+		
+		ArrayList<Classe> resultadoArray = new ArrayList<Classe>();
+		
+		for (Object object : resultado) {
+			resultadoArray.add((Classe)object);
+		}
+		
+		ArrayList<Classe> resultadocertoArray = new ArrayList<Classe>();
+
+		for (Classe classeObject : resultadocertoArray) {
+			resultadocertoArray.add(classeObject);
 		}
 
 		for(int i = 0; i < resultadocerto.length; i++) {

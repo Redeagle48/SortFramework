@@ -13,5 +13,9 @@ public class SortProcess {
 	public int[] run(int[] values) {
 		return sortalg.run(values);
 	}
+	
+	public Object[] run(Object[] tosort_objects) {
+		return sortalg.run(tosort_objects);
+	}
 
 }
