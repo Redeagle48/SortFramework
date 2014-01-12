@@ -49,23 +49,4 @@ public class InsertionSort extends SortAlgorithm{
 			helper[newIndex] = value;
 		}
 	}
-
-
-	/*
-	public int[] insertValueVector(int[] numbers, int value, int offset, int numberIndex){
-		int[] helper = new int[numbers.length];
-		helper = numbers;
-		if(offset == 0) {
-			helper[numberIndex] = value;
-		} else {
-			int newIndex = numberIndex-offset;
-			for(int i = helper.length-2; i  >= newIndex; i--) {
-				helper[i+1] = helper[i];
-			}
-			helper[newIndex] = value;
-		}
-
-		return helper;
-	}
-	 */
 }

@@ -1,4 +1,4 @@
-package sortalgorithms.insertionsortgeneric;
+package sortalgorithms.bubblesortgeneric;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import sortalgorithms.SortAlgorithm;
 import sortutils.Utils;
 
-public class InsertionSortGeneric extends SortAlgorithm {
+public class BubbleSortGeneric extends SortAlgorithm{
 
 	private Object[] objectsToSort;
 	private int number;
@@ -15,20 +15,12 @@ public class InsertionSortGeneric extends SortAlgorithm {
 		this.objectsToSort = values;
 		number = objectsToSort.length;
 
-		try {
-			insertionsort();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		bubblesort();
 
 		return objectsToSort;
 	}
 
-	public void insertionsort() throws NoSuchMethodException, SecurityException{
+	public void bubblesort(){
 		int count = 1; //To pass the first while
 
 		while (count != 0){
@@ -38,11 +30,13 @@ public class InsertionSortGeneric extends SortAlgorithm {
 				Class<? extends Object> c = objectsToSort[i].getClass();
 				Class[] cArg = new Class[1];
 				cArg[0] = objectsToSort[i].getClass();
-				Method lmethod = c.getDeclaredMethod("compareTo", cArg);
-
-				Object[] vect = {objectsToSort[i+1]};
-
+				Method lmethod;
 				try {
+					lmethod = c.getDeclaredMethod("compareTo", cArg);
+
+
+					Object[] vect = {objectsToSort[i+1]};
+
 					if((int)lmethod.invoke(objectsToSort[i], vect) > 0) {
 						Utils.exchangeObj(i, i+1, objectsToSort);
 						count++;
@@ -56,17 +50,14 @@ public class InsertionSortGeneric extends SortAlgorithm {
 				} catch (InvocationTargetException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} catch (NoSuchMethodException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SecurityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		}
 	}
-
-	/*
-	public void exchangeObj(int i, int j){
-		Object t=objectsToSort[i];
-		objectsToSort[i]=objectsToSort[j];
-		objectsToSort[j]=t; 
-	}
-	*/
-
 }
